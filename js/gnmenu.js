@@ -50,6 +50,7 @@
 					document.addEventListener( self.eventtype, self.bodyClickFn ); 
 				} );
 			}
+
 			this.trigger.addEventListener( this.eventtype, function( ev ) {
 				ev.stopPropagation();
 				ev.preventDefault();
@@ -61,8 +62,11 @@
 					self._openMenu();
 					document.addEventListener( self.eventtype, self.bodyClickFn );
 				}
-			} );
-			this.menu.addEventListener( this.eventtype, function(ev) { ev.stopPropagation(); } );
+			});
+
+			this.menu.addEventListener( this.eventtype, function(ev) { 
+				/*ev.stopPropagation(); */ 
+			});
 		},
 		_openIconMenu : function() {
 			classie.add( this.menu, 'gn-open-part' );
@@ -85,8 +89,9 @@
 			this._closeIconMenu();
 		}
 	}
+	window.gnMenu = gnMenu;
 
 	// add to global namespace
-	window.gnMenu = gnMenu;
+	//window.gnMenu = gnMenu;
 
 } )( window );
