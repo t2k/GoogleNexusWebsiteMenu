@@ -25,7 +25,9 @@ to allow menu to flow over adjacent content:
     	z-index: 10;
 	}
 
+
 We're targeting the :last li for a dynamic edit state menu
+
 	.gn-menu-main > li:last-child > ul > li {
 		padding: 0 8px;
 
