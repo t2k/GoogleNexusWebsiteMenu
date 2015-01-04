@@ -33,19 +33,22 @@ We're targeting the :last li for a dynamic edit state menu
 
 
 
+NEW!  Added gulp build and UMD wrapper.  Was having trouble integrating into an AMD client so I added support.
 
-Added gulp build with UMD wrapper
+
 
 BUILD STEPS:
 
 install gulp globally ie: 
 
-$ sudo npm install gulp -g
+	$ sudo npm install gulp -g
 
 then:
 
-npm install
+	npm install
 
 to build, just run default gulp task, ie:
 
-$ gulp
+	gulp
+
+Moved classie.js and gnmenu.js to ./dist folder
