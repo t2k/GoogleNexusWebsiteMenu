@@ -1,0 +1,26 @@
+{
+  "name": "googlenexuswebsitemenu",
+  "version": "1.0.0",
+  "description": "slide in menu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/t2k/googlenexuswebsitemenu"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/t2k/googlenexuswebsitemenu/issues"
+  },
+  "homepage": "https://github.com/t2k/googlenexuswebsitemenu",
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "del": "^1.1.1",
+    "gulp": "^3.8.10",
+    "gulp-coffee": "^2.2.0",
+    "gulp-umd": "^0.1.3"
+  }
+}
