@@ -66,8 +66,8 @@ gnMenu:: =
       return
 
     @menu.addEventListener @eventtype, (ev) ->
-
-    return
+      console.log ev, @eventtype
+      ev.stopPropagation()
 
   
   #ev.stopPropagation(); 
