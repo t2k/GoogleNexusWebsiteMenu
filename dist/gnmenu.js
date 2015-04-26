@@ -77,7 +77,10 @@ gnMenu.prototype = {
         document.addEventListener(self.eventtype, self.bodyClickFn);
       }
     });
-    this.menu.addEventListener(this.eventtype, function(ev) {});
+    return this.menu.addEventListener(this.eventtype, function(ev) {
+      console.log(ev, this.eventtype);
+      return ev.stopPropagation();
+    });
   },
   _openIconMenu: function() {
     classie.add(this.menu, "gn-open-part");
