@@ -1,5 +1,5 @@
 ###*
-gnmenu.js v1.0.0
+gnmenu.js v1.1.2
 http://www.codrops.com
 
 Licensed under the MIT license.
@@ -9,7 +9,7 @@ Copyright 2013, Codrops
 http://www.codrops.com
 ###
 "use strict"
-  
+
 # http://stackoverflow.com/a/11381730/989439
 mobilecheck = ->
   check = false
@@ -31,10 +31,10 @@ gnMenu:: =
     @eventtype = (if mobilecheck() then "touchstart" else "click")
     @_initEvents()
     self = this
+
     @bodyClickFn = ->
       self._closeMenu()
       @removeEventListener self.eventtype, self.bodyClickFn
-      return
 
     return
 
@@ -43,16 +43,13 @@ gnMenu:: =
     unless mobilecheck()
       @trigger.addEventListener "mouseover", (ev) ->
         self._openIconMenu()
-        return
 
       @trigger.addEventListener "mouseout", (ev) ->
         self._closeIconMenu()
-        return
 
       @menu.addEventListener "mouseover", (ev) ->
         self._openMenu()
         document.addEventListener self.eventtype, self.bodyClickFn
-        return
 
     @trigger.addEventListener @eventtype, (ev) ->
       ev.stopPropagation()
@@ -63,21 +60,17 @@ gnMenu:: =
       else
         self._openMenu()
         document.addEventListener self.eventtype, self.bodyClickFn
-      return
 
     @menu.addEventListener @eventtype, (ev) ->
-      console.log ev, @eventtype
       ev.stopPropagation()
+      self._closeMenu()
 
-  
-  #ev.stopPropagation(); 
+
   _openIconMenu: ->
     classie.add @menu, "gn-open-part"
-    return
 
   _closeIconMenu: ->
     classie.remove @menu, "gn-open-part"
-    return
 
   _openMenu: ->
     return  if @isMenuOpen
@@ -85,7 +78,6 @@ gnMenu:: =
     @isMenuOpen = true
     classie.add @menu, "gn-open-all"
     @_closeIconMenu()
-    return
 
   _closeMenu: ->
     return  unless @isMenuOpen
@@ -93,5 +85,4 @@ gnMenu:: =
     @isMenuOpen = false
     classie.remove @menu, "gn-open-all"
     @_closeIconMenu()
-    return
 

@@ -9,7 +9,7 @@
 }(this, function(classie) {
 
 /**
-gnmenu.js v1.0.0
+gnmenu.js v1.1.2
 http://www.codrops.com
 
 Licensed under the MIT license.
@@ -48,7 +48,7 @@ gnMenu.prototype = {
     self = this;
     this.bodyClickFn = function() {
       self._closeMenu();
-      this.removeEventListener(self.eventtype, self.bodyClickFn);
+      return this.removeEventListener(self.eventtype, self.bodyClickFn);
     };
   },
   _initEvents: function() {
@@ -56,14 +56,14 @@ gnMenu.prototype = {
     self = this;
     if (!mobilecheck()) {
       this.trigger.addEventListener("mouseover", function(ev) {
-        self._openIconMenu();
+        return self._openIconMenu();
       });
       this.trigger.addEventListener("mouseout", function(ev) {
-        self._closeIconMenu();
+        return self._closeIconMenu();
       });
       this.menu.addEventListener("mouseover", function(ev) {
         self._openMenu();
-        document.addEventListener(self.eventtype, self.bodyClickFn);
+        return document.addEventListener(self.eventtype, self.bodyClickFn);
       });
     }
     this.trigger.addEventListener(this.eventtype, function(ev) {
@@ -71,22 +71,22 @@ gnMenu.prototype = {
       ev.preventDefault();
       if (self.isMenuOpen) {
         self._closeMenu();
-        document.removeEventListener(self.eventtype, self.bodyClickFn);
+        return document.removeEventListener(self.eventtype, self.bodyClickFn);
       } else {
         self._openMenu();
-        document.addEventListener(self.eventtype, self.bodyClickFn);
+        return document.addEventListener(self.eventtype, self.bodyClickFn);
       }
     });
     return this.menu.addEventListener(this.eventtype, function(ev) {
-      console.log(ev, this.eventtype);
-      return ev.stopPropagation();
+      ev.stopPropagation();
+      return self._closeMenu();
     });
   },
   _openIconMenu: function() {
-    classie.add(this.menu, "gn-open-part");
+    return classie.add(this.menu, "gn-open-part");
   },
   _closeIconMenu: function() {
-    classie.remove(this.menu, "gn-open-part");
+    return classie.remove(this.menu, "gn-open-part");
   },
   _openMenu: function() {
     if (this.isMenuOpen) {
@@ -95,7 +95,7 @@ gnMenu.prototype = {
     classie.add(this.trigger, "gn-selected");
     this.isMenuOpen = true;
     classie.add(this.menu, "gn-open-all");
-    this._closeIconMenu();
+    return this._closeIconMenu();
   },
   _closeMenu: function() {
     if (!this.isMenuOpen) {
@@ -104,7 +104,7 @@ gnMenu.prototype = {
     classie.remove(this.trigger, "gn-selected");
     this.isMenuOpen = false;
     classie.remove(this.menu, "gn-open-all");
-    this._closeIconMenu();
+    return this._closeIconMenu();
   }
 };
 

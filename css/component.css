@@ -323,12 +323,12 @@ input.gn-search:focus {
 		height: 60px
 }
 
-@media screen and (max-width: 422px) { 
+@media screen and (max-width: 422px) {
 	.gn-menu-wrapper.gn-open-all {
 			-webkit-transform: translateX(0px);
 			-moz-transform: translateX(0px);
 			transform: translateX(0px);
-			width: 100%;
+			width: 75%;
 	}
 
 	.gn-menu-wrapper.gn-open-all .gn-scroller {
