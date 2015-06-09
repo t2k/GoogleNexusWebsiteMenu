@@ -28,7 +28,8 @@ gnMenu:: =
     @trigger = @el.querySelector("a.gn-icon-menu")
     @menu = @el.querySelector("nav.gn-menu-wrapper")
     @isMenuOpen = false
-    @eventtype = (if mobilecheck() then "touchstart" else "click")
+    #@eventtype = (if mobilecheck() then "touchstart" else "click")
+    @eventtype = (if mobilecheck() then "click" else "click")
     @_initEvents()
     self = this
 
@@ -62,9 +63,9 @@ gnMenu:: =
         document.addEventListener self.eventtype, self.bodyClickFn
 
     @menu.addEventListener @eventtype, (ev) ->
-      ev.stopPropagation()
+      #ev.stopPropagation()
       self._closeMenu()
-
+      return false
 
   _openIconMenu: ->
     classie.add @menu, "gn-open-part"
