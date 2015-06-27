@@ -33,7 +33,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 100%;
+		width: auto;
 		height: 60px;
 		font-size: 13px;
 		z-index: 100;
@@ -66,6 +66,7 @@
 /* icon-only trigger (menu item) */
 
 .gn-menu-main li.gn-trigger {
+		background: #4285F4;
 		position: relative;
 		width: 60px;
 		-webkit-touch-callout: none;
