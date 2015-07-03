@@ -31,8 +31,8 @@
 
 .gn-menu-main {
 		position: fixed;
-		top: 0;
-		left: 0;
+		top: 16px;
+		left: 10px;
 		width: auto;
 		height: 60px;
 		font-size: 13px;
@@ -103,9 +103,9 @@
 
 .gn-menu-wrapper {
 		position: fixed;
-		top: 60px;
+		top: 76px;
 		bottom: 0;
-		left: 0;
+		left: -10px;
 		overflow: hidden;
 		width: 60px;
 		border-top: 1px solid #c6d0da;
@@ -311,6 +311,7 @@ input.gn-search:focus {
 
 .gn-menu-wrapper.gn-open-all,
 .gn-menu-wrapper.gn-open-part {
+		left: 10px;
 		-webkit-transform: translateX(0px);
 		-moz-transform: translateX(0px);
 		transform: translateX(0px);
